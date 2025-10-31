@@ -15,6 +15,7 @@ public class Wand {
         this.length = length;
     }
 
+
     public int getId() {
         return id;
     }

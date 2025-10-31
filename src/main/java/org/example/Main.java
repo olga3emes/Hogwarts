@@ -1,9 +1,7 @@
 package org.example;
 
-import Models.House;
-import Models.HouseDAO;
-import Models.Wand;
-import Models.Wizard;
+import Models.*;
+import com.mysql.cj.xdevapi.SqlResultBuilder;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -31,18 +29,47 @@ public class Main {
 
 
 
-        /*Wand wand1 = new Wand("Acebo", "Pluma de fénix", 28.0);
+
+        Wand wand1 = new Wand("Acebo", "Pluma de fénix", 28.0);
         Wand wand2 = new Wand("Espino", "Pelo de unicornio", 23.0);
         Wand wand3 = new Wand("Vid", "Corazon de dragon", 25.4);
         Wand wand4 = new Wand("Sauce", "Pelo de unicornio", 25.4);
 
-        Wizard harry = new Wizard("Harry Potter", 17);
-        Wizard ron = new Wizard("Ron Weasley", 17);
-        Wizard hermione = new Wizard("Hermione Granger", 17);
-        Wizard draco= new Wizard("Draco Malfoy", 17);
+        WandDAO wandDAO = new WandDAO();
+
+       /*wandDAO.create(wand1);
+        wandDAO.create(wand2);
+        wandDAO.create(wand3);
+        wandDAO.create(wand4);*/
 
 
-        System.out.println(gryffindor.toString());
+        List<Wand> wands = wandDAO.getAll();
+        //forma Olga: houses.forEach(System.out :: println);
+        for(Wand w : wands){
+            System.out.println(w.toString());
+        }
+
+
+        Wizard harry = new Wizard("Harry Potter", 17, 1, 1);
+        Wizard ron = new Wizard("Ron Weasley", 17, 1,2);
+        Wizard hermione = new Wizard("Hermione Granger", 17, 1, 3);
+        Wizard draco= new Wizard("Draco Malfoy", 17, 2,4);
+
+        WizardDAO wizardDAO = new WizardDAO();
+
+       /* wizardDAO.create(harry);
+        wizardDAO.create(ron);
+        wizardDAO.create(hermione);
+        wizardDAO.create(draco);*/
+
+
+        List<Wizard> wizards = wizardDAO.getAll();
+
+        for(Wizard w : wizards){
+            System.out.println(w.toString());
+        }
+
+       /* System.out.println(gryffindor.toString());
         System.out.println(slytherin.toString());
         System.out.println(hufflepuff.toString());
         System.out.println(ravenclaw.toString());
