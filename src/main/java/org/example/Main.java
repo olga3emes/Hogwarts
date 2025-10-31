@@ -62,12 +62,16 @@ public class Main {
         wizardDAO.create(hermione);
         wizardDAO.create(draco);*/
 
+        //wizardDAO.delete(5);
 
         List<Wizard> wizards = wizardDAO.getAll();
 
         for(Wizard w : wizards){
             System.out.println(w.toString());
         }
+
+
+
 
        /* System.out.println(gryffindor.toString());
         System.out.println(slytherin.toString());
