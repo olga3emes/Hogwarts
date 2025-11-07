@@ -70,6 +70,12 @@ public class Main {
             System.out.println(w.toString());
         }
 
+        ron.setName("Ronald Weasly");
+        ron.setAge(19);
+        ron.setId(3);
+        wizardDAO.update(ron);
+        System.out.println(ron.toString());
+
 
 
 

@@ -42,5 +42,13 @@ public class WandDAO {
     }
 
 
+    public void delete (int id) throws SQLException{
+
+        String sql = "delete from wand where id=?";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setInt(1, id);
+        ps.executeUpdate();
+        ps.close();
+    }
 
 }//end class
