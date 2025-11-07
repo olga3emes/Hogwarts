@@ -3,6 +3,7 @@ package Views;
 import Controllers.WizardController;
 import Models.Wizard;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class WizardView {
@@ -15,7 +16,7 @@ public class WizardView {
         sc = new Scanner(System.in);
     }
 
-    public void showMenu() {
+    public void showMenu() throws SQLException {
         int option;
         do {
             System.out.println("\n --- Bienvenidos a Hogwarts 🪄🪄🪄🏰----");

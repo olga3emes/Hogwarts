@@ -4,6 +4,7 @@ import Models.Wizard;
 import Models.WizardDAO;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class WizardController {
@@ -28,20 +29,10 @@ public class WizardController {
         }
     }
 
-    public void listWizard() {
-        try {
-            List<Wizard> wizards = wizardDAO.getAll();
-            if (wizards.isEmpty()) {
-                System.out.println("⚠️ No hay magos");
-            } else {
+    public List<Wizard> listWizard() throws SQLException {
+        List<Wizard> wizards= wizardDAO.getAll();
+            return wizards;
 
-                for (Wizard w : wizards) {
-                    System.out.println(w);
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("❌❌ Error al listar los magos" + e.getMessage());
-        }
     }
 
     public void updateWizard(int id, String name, int age, int houseId, int wandId){
