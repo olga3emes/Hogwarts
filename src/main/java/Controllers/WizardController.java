@@ -29,10 +29,20 @@ public class WizardController {
         }
     }
 
-    public List<Wizard> listWizard() throws SQLException {
-        List<Wizard> wizards= wizardDAO.getAll();
-            return wizards;
+    public void listWizard() {
+        try {
+            List<Wizard> wizards = wizardDAO.getAll();
+            if (wizards.isEmpty()) {
+                System.out.println("⚠️ No hay magos");
+            } else {
 
+                for (Wizard w : wizards) {
+                    System.out.println(w);
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("❌❌ Error al listar los magos" + e.getMessage());
+        }
     }
 
     public void updateWizard(int id, String name, int age, int houseId, int wandId){
@@ -52,6 +62,15 @@ public class WizardController {
             System.out.println("Mago eliminado 🧻🗑️");
         }catch(SQLException e){
             System.out.println("❌ Error al eliminar mago:" + e.getMessage());
+        }
+    }
+
+    public List<Wizard> getAllWizards() {
+        try {
+            return wizardDAO.getAll();
+        } catch (SQLException e) {
+            System.out.println("❌ Error al obtener magos: " + e.getMessage());
+            return null;
         }
     }
 

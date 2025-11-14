@@ -20,7 +20,7 @@ public class WizardViewSwing extends JFrame {
     public WizardViewSwing() throws SQLException {
         controller = new WizardController();
         setTitle("🏰 Hogwarts - Gestión de Magos");
-        setSize(600, 600);
+        setSize(800, 400);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
@@ -38,9 +38,7 @@ public class WizardViewSwing extends JFrame {
         JButton btnRefresh = new JButton("Actualizar Lista 🌀");
 
         JPanel inputPanel = new JPanel();
-        inputPanel.add(btnAdd);
-        inputPanel.add(btnDelete);
-        inputPanel.add(btnRefresh);
+
 
         panel.add(inputPanel, BorderLayout.SOUTH);
 
@@ -54,6 +52,9 @@ public class WizardViewSwing extends JFrame {
         txtAge = new JTextField(5);
         inputPanel.add(txtAge);
 
+        inputPanel.add(btnAdd);
+        inputPanel.add(btnDelete);
+        inputPanel.add(btnRefresh);
 
         loadData();
 
@@ -63,7 +64,7 @@ public class WizardViewSwing extends JFrame {
 
     private void loadData() throws SQLException {
         model.setRowCount(0);
-        List<Wizard> wizards = controller.listWizard();
+        List<Wizard> wizards = controller.getAllWizards();
         if (wizards != null) {
             for (Wizard w : wizards) {
                 model.addRow(new Object[]{w.getId(), w.getName(), w.getAge()});

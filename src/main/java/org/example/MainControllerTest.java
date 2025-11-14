@@ -2,12 +2,12 @@ package org.example;
 
 import Views.WizardView;
 
-public class MainControllerTest {
+import java.sql.SQLException;
 
-    public static void main(String[] args) {
+public class MainControllerTest {
+    public static void main(String[] args) throws SQLException {
         WizardView view = new WizardView();
         view.showMenu();
     }
-
 
 }
