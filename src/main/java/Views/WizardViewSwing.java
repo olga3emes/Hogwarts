@@ -24,7 +24,6 @@ public class WizardViewSwing extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-
         //Panel principal
         JPanel panel = new JPanel(new BorderLayout());
         add(panel);
@@ -35,6 +34,7 @@ public class WizardViewSwing extends JFrame {
         panel.add(table);
 
         JButton btnAdd = new JButton("Agregar ➕");
+        JButton btnEdit = new JButton("Editar ✏️");
         JButton btnDelete = new JButton("Eliminar ❌");
         JButton btnRefresh = new JButton("Actualizar Lista 🌀");
 
@@ -54,8 +54,31 @@ public class WizardViewSwing extends JFrame {
         inputPanel.add(txtAge);
 
         inputPanel.add(btnAdd);
+        inputPanel.add(btnEdit);
         inputPanel.add(btnDelete);
         inputPanel.add(btnRefresh);
+
+        btnAdd.addActionListener(e ->{
+            String name = txtName.getText();
+            int age = Integer.parseInt(txtAge.getText());
+            controller.addWizard(name,age);
+            loadData();
+        });
+
+        btnDelete.addActionListener(e->{
+            int id = Integer.parseInt(txtId.getText());
+            controller.deleteWizard(id);
+            loadData();
+        });
+
+        btnRefresh.addActionListener(e->{
+            loadData();
+        });
+
+        btnEdit.addActionListener(e->{
+
+        });
+
 
         loadData();
 
@@ -63,7 +86,7 @@ public class WizardViewSwing extends JFrame {
     }
 
 
-    private void loadData() throws SQLException {
+    private void loadData()  {
         model.setRowCount(0);
         List<Wizard> wizards = controller.getAllWizards();
         if (wizards != null) {

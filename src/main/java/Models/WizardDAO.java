@@ -66,4 +66,13 @@ public class WizardDAO {
         ps.executeUpdate();
         ps.close();
     }
+
+    public void create2(Wizard wizard) throws SQLException {
+        String sql = "insert into wizard(name, age ) values (?,?)";
+        PreparedStatement ps = conn.prepareStatement(sql);
+        ps.setString(1, wizard.getName());
+        ps.setInt(2, wizard.getAge());
+        ps.executeUpdate();
+        ps.close();
+    }
 }//endclass

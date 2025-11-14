@@ -75,4 +75,12 @@ public class WizardController {
     }
 
 
+    public void addWizard(String name, int age)  {
+        try {
+            wizardDAO.create2(new Wizard(name, age));
+            System.out.println("➕ Mago agregado");
+        }catch(SQLException e){
+            System.out.println("❌ Error al añadir el mago: " + e.getMessage());
+        }
+    }
 }
