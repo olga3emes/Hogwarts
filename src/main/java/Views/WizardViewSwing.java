@@ -24,6 +24,7 @@ public class WizardViewSwing extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+
         //Panel principal
         JPanel panel = new JPanel(new BorderLayout());
         add(panel);
